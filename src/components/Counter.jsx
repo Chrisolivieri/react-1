@@ -26,6 +26,9 @@ function Counter() {
         setCounter(counter + 1); // non usate il ++ perchè modifica il valore della variabile, ma lo stato non deve mai essere modificato direttamente
         console.log(counter);
     };
+    const clear = () => {
+        setCounter(0);
+    };
 
     return (
         <>
@@ -34,6 +37,7 @@ function Counter() {
 
             <div>{counter}</div>
             <button onClick={increment}>Incrementa</button>
+            <button onClick={clear}>Pulisci</button>
             <Button
                 variant="danger"
                 onClick={() => {
