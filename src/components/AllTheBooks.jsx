@@ -9,8 +9,8 @@ function AllTheBooks() {
     <Container>
       <Row>
         {horror.map((item) => (
-          <Col key={item.id}>
-            <img src={item.img} alt={item.title} />
+          <Col>
+            <img src={item.img}/>
           </Col>
         ))}
       </Row>
