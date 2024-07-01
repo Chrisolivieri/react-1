@@ -13,8 +13,9 @@ function App() {
       <MyNav />
       <Welcome />
       <AllTheBooks />
-      {/* <Counter />
-      <Text primaRiga="Prima riga testo props" secondoElemento="Secondo elemento testo props " terzoElemento="Terzo elemento testo props" />
+      {/* <Counter />*/}
+      {/* Possiamo passare qualsiasi tipo di dato nel componente: array, oggetti, funzioni... */}
+      {/* <Text primaRiga="Prima riga testo props" secondoElemento={2} terzoElemento="Terzo elemento testo props" />
       <Text primaRiga="Seconda riga testo props" secondoElemento="Secondo elemento testo props " terzoElemento="Terzo elemento testo props" />
       <Text primaRiga="Terza riga testo props" secondoElemento="Terzo elemento testo props " terzoElemento="Terzo elemento testo props" /> */}
       <MyFooter />
