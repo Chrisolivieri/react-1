@@ -1,8 +1,8 @@
-h1{
+h1 {
   text-align: center;
 }
 
-footer{
+footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,32 +10,31 @@ footer{
   color: white;
   background-color: black;
   padding: 10px;
-  
+
 }
 
-.card{
+.card {
   max-width: 15rem;
-  height:100%;
+  height: 100%;
   padding: 1rem;
-  
+
 }
 
-.card{
+.card {
   width: 100%;
   height: 100%;
   padding: 1rem;
   margin: 1rem;
 }
 
-p{
-  white-space: nowrap;  
+p {
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  font-size: small;
+  text-overflow: ellipsis;
 }
 
-img{
+img {
   width: 100%;
   height: 15rem;
-  object-fit: cover;
+  object-fit: contain;
 }

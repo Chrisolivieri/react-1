@@ -36,8 +36,10 @@ function Counter() {
             {/* {if (test) { ........ } else { ........ }}  */}
 
             <div>{counter}</div>
+
             <button onClick={increment}>Incrementa</button>
             <button onClick={clear}>Pulisci</button>
+
             <Button
                 variant="danger"
                 onClick={() => {
