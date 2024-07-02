@@ -1,9 +1,18 @@
+import { useState } from "react";
 import Card from "react-bootstrap/Card";
 
 function SingleBook(props) {
+  const [cardColor, setCardColor] = useState("white");
+
+  const handleCardClick = () => {
+    const newColor = cardColor === "white" ? "red" : "white";
+    setCardColor(newColor);
+  
+  };
   
   return (
-    <Card>
+    <Card onClick={handleCardClick} 
+    style={{ borderColor: cardColor }}>
       <Card.Img src={props.immagine}/>
       <Card.Body>
         <Card.Title><p>{props.titolo}</p></Card.Title>
