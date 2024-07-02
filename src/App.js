@@ -2,9 +2,9 @@ import './App.css';
 import MyNav from './components/MyNav';
 import MyFooter from './components/MyFooter';
 import Welcome from './components/Welcome';
-import Counter from './components/Counter';
+// import Counter from './components/Counter';
 import AllTheBooks from './components/AllTheBooks';
-import Text from './components/Text';
+// import Text from './components/Text';
 
 function App() {
   return (

@@ -17,15 +17,11 @@ footer {
   max-width: 15rem;
   height: 100%;
   padding: 1rem;
-
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
   margin: 1rem;
+
 }
+
+
 
 p {
   white-space: nowrap;
@@ -37,4 +33,8 @@ img {
   width: 100%;
   height: 15rem;
   object-fit: contain;
+}
+
+.redBorder{
+  border-color: red;
 }
