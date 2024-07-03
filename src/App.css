@@ -34,3 +34,11 @@ img {
   height: 15rem;
   object-fit: contain;
 }
+
+h6{
+  padding-top: 1rem;
+}
+
+.redBorder{
+  border: solid red 2px !important;
+}

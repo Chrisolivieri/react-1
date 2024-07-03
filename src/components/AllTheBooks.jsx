@@ -14,10 +14,8 @@ function AllTheBooks() {
 
   const filter = (event) => {
     setInput(event.target.value);
-    const filtrati = Horror.filter((b) => {
-      return event.target.value.toLowerCase() === ""
-        ? b
-        : b.title.toLowerCase().includes(event.target.value.toLowerCase());
+    const filtrati = Horror.filter((book) => {
+      return event.target.value.toLowerCase() === "" ? book : book.title.toLowerCase().includes(event.target.value.toLowerCase());
     });
     setLibriFiltrati(filtrati);
   };
@@ -28,8 +26,11 @@ function AllTheBooks() {
       <Container>
       <InputGroup>
         <Form.Control onChange={filter} value={input} placeholder="Cerca libro" />
+       
       </InputGroup>
+      <h6>Il valore ricercato è {input}</h6>
         <Row>
+        
           {libriFiltrati.map((item) => (
             <Col sm={6} md={4} lg={3} key={item.asin}>
               <SingleBook
