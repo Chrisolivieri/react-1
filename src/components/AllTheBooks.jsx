@@ -34,6 +34,7 @@ function AllTheBooks() {
           {libriFiltrati.map((item) => (
             <Col sm={6} md={4} lg={3} key={item.asin}>
               <SingleBook
+                asin = {item.asin}
                 immagine={item.img}
                 titolo={item.title}
                 testo={" € " + item.price}
