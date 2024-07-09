@@ -3,12 +3,13 @@ import SingleComment from "./SingleComment";
 
 function CommentList({ comments }) {
     return (
-        <ListGroup>
+        <ListGroup >
             {comments.map(comment => 
-                <SingleComment key={comment.id} comment={comment} />
+                <SingleComment key={comment._id} comment={comment} />
             )}
         </ListGroup>
     );
 }
 
 export default CommentList;
+

@@ -13,8 +13,8 @@ function SingleBook(props) {
   };
   
   return (
-    <Card className={border ? "redBorder" : null} onClick={handleCardClick}>
-      <Card.Img src={props.immagine}/>
+    <Card className={border ? "redBorder" : null} >
+      <Card.Img src={props.immagine} onClick={handleCardClick}/>
       <Card.Body>
         <Card.Title><p>{props.titolo}</p></Card.Title>
         <Card.Text>{props.testo}</Card.Text>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
+import AddComment from "./AddComment";
 
 
 function CommentArea({asin}) {
@@ -22,6 +23,7 @@ function CommentArea({asin}) {
   }, []);
   return(
     <>
+    <AddComment asin = {asin} />
     <CommentList comments = {comments} />
     </>
    
