@@ -32,7 +32,7 @@ function AllTheBooks() {
         <Row>
         
           {libriFiltrati.map((item) => (
-            <Col sm={6} md={4} lg={4} key={item.asin}>
+            <Col sm={12} md={6} lg={4} key={item.asin}>
               <SingleBook
                 asin = {item.asin}
                 immagine={item.img}
