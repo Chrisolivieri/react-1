@@ -1,4 +1,5 @@
-h1,h6 {
+h1,
+h6 {
   text-align: center;
 }
 
@@ -10,7 +11,6 @@ footer {
   color: white;
   background-color: black;
   padding: 10px;
-
 }
 
 .card {
@@ -18,10 +18,7 @@ footer {
   height: 100%;
   padding: 1rem;
   margin: 1rem;
-
 }
-
-
 
 p {
   white-space: nowrap;
@@ -35,10 +32,10 @@ img {
   object-fit: contain;
 }
 
-h6{
+h6 {
   padding-top: 1rem;
 }
 
-.redBorder{
+.redBorder {
   border: solid red 2px !important;
 }

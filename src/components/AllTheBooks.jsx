@@ -8,19 +8,15 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import SingleBook from "./SingleBook";
 
-function AllTheBooks({libriFiltrati}) {
-  
+function AllTheBooks({ libriFiltrati }) {
   return (
     <>
-      
       <Container>
-      
         <Row>
-        
           {libriFiltrati.map((item) => (
             <Col sm={12} md={6} lg={4} key={item.asin}>
               <SingleBook
-                asin = {item.asin}
+                asin={item.asin}
                 immagine={item.img}
                 titolo={item.title}
                 testo={" € " + item.price}

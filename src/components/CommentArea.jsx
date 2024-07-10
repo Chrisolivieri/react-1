@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
 
-
-
-function CommentArea({asin}) {
+function CommentArea({ asin }) {
   const [comments, setComments] = useState([]);
   const loadComments = async () => {
     const response = await fetch(
@@ -17,20 +15,18 @@ function CommentArea({asin}) {
       }
     );
     const data = await response.json();
-    setComments(data)
+    setComments(data);
   };
   useEffect(() => {
-    loadComments()
+    loadComments();
   }, []);
-  return(
+  return (
     <>
-    <AddComment asin = {asin} loadComments = {loadComments} />
-  
-    <CommentList comments = {comments} loadComments = {loadComments} />
+      <AddComment asin={asin} loadComments={loadComments} />
+
+      <CommentList comments={comments} loadComments={loadComments} />
     </>
-   
-  )
-  
+  );
 }
 
 export default CommentArea;
