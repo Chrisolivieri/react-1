@@ -1,21 +1,25 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
-function BasicExample() {
+function BasicExample({filter ,input}) {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
                 <Navbar.Brand href="#home">Visualizza libri</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                    </Nav>
+                    
                 </Navbar.Collapse>
+                <InputGroup>
+        <Form.Control onChange={filter} value={input} placeholder="Cerca libro" />
+       
+      </InputGroup>
+      
             </Container>
+            
         </Navbar>
     );
 }
