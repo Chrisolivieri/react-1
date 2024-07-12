@@ -4,11 +4,13 @@ import "../App.css";
 import CommentArea from "./CommentArea"
 
 
+
 function SingleBook(props) {
   const [border, setBorder] = useState(false);
 
   const handleCardClick = () => {
     setBorder(!border);
+
   
   };
   

@@ -24,7 +24,7 @@ function Welcome({ input }) {
         </Button>
       )}
       <h1>Libri react</h1>
-      <h6>Il valore ricercato è {input}</h6>
+      {input && <h6>Il valore ricercato è {input}</h6>}
     </>
   );
 }

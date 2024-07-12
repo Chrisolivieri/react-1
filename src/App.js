@@ -6,11 +6,15 @@ import Welcome from "./components/Welcome";
 import AllTheBooks from "./components/AllTheBooks";
 // import Text from './components/Text';
 import Horror from "./components/books/horror.json";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ThemeContextProvider, { ThemeContext } from "./context/ThemeContextProvider";
+import { Button } from "react-bootstrap";
 
 function App() {
   const [input, setInput] = useState("");
   const [libriFiltrati, setLibriFiltrati] = useState(Horror);
+
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const filter = (event) => {
     setInput(event.target.value);
@@ -22,18 +26,22 @@ function App() {
     setLibriFiltrati(filtrati);
   };
   return (
-    <>
-      <MyNav filter={filter} input={input} />
-      <Welcome input={input} />
-      <AllTheBooks libriFiltrati={libriFiltrati} />
-      {/* <Counter />*/}
-      {/* Possiamo passare qualsiasi tipo di dato nel componente: array, oggetti, funzioni... */}
-      {/* <Text primaRiga="Prima riga testo props" secondoElemento={2} terzoElemento="Terzo elemento testo props" />
-      <Text primaRiga="Seconda riga testo props" secondoElemento="Secondo elemento testo props " terzoElemento="Terzo elemento testo props" />
-      <Text primaRiga="Terza riga testo props" secondoElemento="Terzo elemento testo props " terzoElemento="Terzo elemento testo props" /> */}
-      <MyFooter />
-    </>
+    
+    <div className={theme === "light" ? "App" : "bg-dark text-light App"}>
+      <ThemeContextProvider>
+        <MyNav filter={filter} input={input} theme={theme} setTheme={setTheme} /> 
+        <Welcome input={input} />
+        <AllTheBooks libriFiltrati={libriFiltrati} />
+        <MyFooter />
+      </ThemeContextProvider>
+    </div>
   );
 }
 
 export default App;
+
+{/* <Counter />*/}
+      {/* Possiamo passare qualsiasi tipo di dato nel componente: array, oggetti, funzioni... */}
+      {/* <Text primaRiga="Prima riga testo props" secondoElemento={2} terzoElemento="Terzo elemento testo props" />
+      <Text primaRiga="Seconda riga testo props" secondoElemento="Secondo elemento testo props " terzoElemento="Terzo elemento testo props" />
+      <Text primaRiga="Terza riga testo props" secondoElemento="Terzo elemento testo props " terzoElemento="Terzo elemento testo props" /> */}

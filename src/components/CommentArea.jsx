@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
+import { Spinner } from "react-bootstrap";
 
 function CommentArea({ asin }) {
+
+
+
   const [comments, setComments] = useState([]);
   const loadComments = async () => {
+
     const response = await fetch(
       `https://striveschool-api.herokuapp.com/api/books/${asin}/comments`,
       {
@@ -14,6 +19,7 @@ function CommentArea({ asin }) {
         },
       }
     );
+
     const data = await response.json();
     setComments(data);
   };
@@ -23,8 +29,9 @@ function CommentArea({ asin }) {
   return (
     <>
       <AddComment asin={asin} loadComments={loadComments} />
-
+     
       <CommentList comments={comments} loadComments={loadComments} />
+      
     </>
   );
 }
