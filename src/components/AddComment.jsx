@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { LiaSaveSolid } from "react-icons/lia";
@@ -11,11 +11,21 @@ function AddComment({ asin, loadComments }) {
   };
 
   const [formValue, setFormValue] = useState(initialFormState);
+
+  useEffect(() => {
+    setFormValue((prevState) => ({ ...prevState, elementId: asin }));
+  }, [asin]);
+
   const handleChange = (event) => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value });
   };
 
   const handleSaveComment = async () => {
+    if (!formValue.rate || !formValue.comment) {
+      alert("Riempi tutti i campi");
+      return;
+    }
+
     try {
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments`,
@@ -32,19 +42,19 @@ function AddComment({ asin, loadComments }) {
 
       if (response.ok) {
         loadComments();
-        setFormValue(initialFormState);
+        setFormValue({ ...initialFormState, elementId: asin });
         alert("Commento inserito correttamente");
       } else {
         alert("Inserisci un numero da 1 a 5");
       }
     } catch (error) {
-      alert("Errore" + error);
+      alert("Error: " + error.message);
     }
   };
 
   return (
     <Form>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="rateInput">
         <Form.Label>Rate from 1 to 5</Form.Label>
         <Form.Control
           type="number"
@@ -56,7 +66,7 @@ function AddComment({ asin, loadComments }) {
           value={formValue.rate}
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+      <Form.Group className="mb-3" controlId="commentTextarea">
         <Form.Label>Your Comment</Form.Label>
         <Form.Control
           as="textarea"
@@ -67,7 +77,7 @@ function AddComment({ asin, loadComments }) {
         />
       </Form.Group>
       <Button variant="primary" onClick={handleSaveComment}>
-      <LiaSaveSolid size={25} />
+        <LiaSaveSolid size={25} />
       </Button>
     </Form>
   );

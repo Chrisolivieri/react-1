@@ -26,6 +26,7 @@ function SingleComment({ comment, loadComments }) {
       }
     } catch (error) {
       alert("Riprova più tardi.");
+      console.log(error);
     }
   };
   const [isEditing, setIsEditing] = useState(false);
@@ -137,9 +138,7 @@ function SingleComment({ comment, loadComments }) {
             <div className="fw-bold">Author</div>
             {comment.author}
           </div>
-          <Badge bg="primary" pill>
-            Comment Author
-          </Badge>
+
         </ListGroup.Item>
       </ListGroup>
       <Button variant="danger" onClick={handleDelete}>
