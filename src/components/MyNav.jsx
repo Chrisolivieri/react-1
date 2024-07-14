@@ -4,8 +4,11 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { CgDarkMode } from "react-icons/cg";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContextProvider";
 
-function BasicExample({ filter, input, theme, setTheme }) {
+function BasicExample({ filter, input }) {
+  const { theme , toggleTheme } = useContext(ThemeContext);
   return (
     <>
       <Navbar
@@ -30,7 +33,7 @@ function BasicExample({ filter, input, theme, setTheme }) {
           </InputGroup>
           <Navbar.Brand className="px-3">
             <Button
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")} 
+              onClick={() => toggleTheme()} 
               variant={theme === "light" ? "outline-dark" : "outline-light"}
               
             >

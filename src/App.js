@@ -7,14 +7,14 @@ import AllTheBooks from "./components/AllTheBooks";
 // import Text from './components/Text';
 import Horror from "./components/books/horror.json";
 import { useContext, useState } from "react";
-import ThemeContextProvider, { ThemeContext } from "./context/ThemeContextProvider";
-import { Button } from "react-bootstrap";
+import  ThemeContextProvider, { ThemeContext } from "./context/ThemeContextProvider";
+
 
 function App() {
   const [input, setInput] = useState("");
   const [libriFiltrati, setLibriFiltrati] = useState(Horror);
 
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const filter = (event) => {
     setInput(event.target.value);
@@ -27,14 +27,16 @@ function App() {
   };
   return (
     
-    <div className={theme === "light" ? "App" : "bg-dark text-light App"}>
-      <ThemeContextProvider>
-        <MyNav filter={filter} input={input} theme={theme} setTheme={setTheme} /> 
-        <Welcome input={input} />
-        <AllTheBooks libriFiltrati={libriFiltrati} />
-        <MyFooter />
-      </ThemeContextProvider>
-    </div>
+   
+      <div className={theme === "light" ? "App" : "bg-dark text-light App"}>
+         
+          <MyNav filter={filter} input={input}  /> 
+          <Welcome input={input} />
+          <AllTheBooks libriFiltrati={libriFiltrati} />
+          <MyFooter />
+        
+      </div>
+   
   );
 }
 

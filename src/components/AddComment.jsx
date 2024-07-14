@@ -67,7 +67,7 @@ function AddComment({ asin, loadComments }) {
         />
       </Form.Group>
       <Button variant="primary" onClick={handleSaveComment}>
-      <LiaSaveSolid />
+      <LiaSaveSolid size={25} />
       </Button>
     </Form>
   );
