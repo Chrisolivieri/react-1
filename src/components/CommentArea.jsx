@@ -40,14 +40,14 @@ function CommentArea({ asin }) {
   }, [asin]);
 
   return (
-    <>
+    <div className="comment-area">
       <AddComment asin={asin} loadComments={loadComments} />
       {loading ? (
         <Spinner animation="border my-3" />
       ) : (
         <CommentList comments={comments} loadComments={loadComments} />
       )}
-    </>
+    </div>
   );
 }
 

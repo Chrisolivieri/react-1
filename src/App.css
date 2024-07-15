@@ -37,3 +37,9 @@ h6 {
 .redBorder {
   border: solid red 2px !important;
 }
+
+.comment-area {
+  padding: 20px;
+  position: sticky;
+  top: 0; 
+}
