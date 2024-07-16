@@ -1,0 +1,12 @@
+.card {
+  margin-top: 2rem
+}
+
+img {
+  width: 100%;
+  height: 25rem;
+}
+
+.redBorder {
+  border: solid red 2px !important;
+}

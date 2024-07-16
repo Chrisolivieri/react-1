@@ -1,3 +1,4 @@
+import './CommentArea.css'
 import { useEffect, useState } from "react";
 import CommentList from "./CommentList";
 import AddComment from "./AddComment";
@@ -45,7 +46,7 @@ function CommentArea({ asin }) {
       {loading ? (
         <Spinner animation="border my-3" />
       ) : (
-        <CommentList comments={comments} loadComments={loadComments} />
+        <div className='comment-list'><CommentList comments={comments} loadComments={loadComments} /></div>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import Card from "react-bootstrap/Card";
-import "../App.css";
+import "./SingleBook.css";
 import { ThemeContext } from "../context/ThemeContextProvider";
 
 function SingleBook({ book, border, handleCardClick }) {

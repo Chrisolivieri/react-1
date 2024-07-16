@@ -1,0 +1,20 @@
+h6 {
+  text-align: center;
+  padding: 1rem;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: end;
+  color: white;
+  background-color: black;
+  padding: 10px;
+}
+
+p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
