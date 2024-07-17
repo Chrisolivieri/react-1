@@ -145,7 +145,7 @@ function SingleComment({ comment, loadComments }) {
       <FaTrashAlt />
       </Button>
       <Button
-        variant="primary"
+        variant="success"
         onClick={() => {
           isEditing ? handleEdit() : editForm();
         }}

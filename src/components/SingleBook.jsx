@@ -1,10 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import "./SingleBook.css";
 import { ThemeContext } from "../context/ThemeContextProvider";
+import { Link, useNavigate } from "react-router-dom";
 
 function SingleBook({ book, border, handleCardClick }) {
   const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  if (!book || !book.asin) {
+    return <div>Errore: libro non disponibile</div>;
+  }
 
   return (
     <Card
@@ -21,8 +27,8 @@ function SingleBook({ book, border, handleCardClick }) {
         <Card.Title>
           <p>{book.title}</p>
         </Card.Title>
-        <Card.Text>{book.price}</Card.Text>
-        {/* {border && <CommentArea asin={book.asin} />} */}
+        <Card.Text>{book.price} €</Card.Text>
+        <Link to={`/details/${book.asin}`}>Dettagli</Link>
       </Card.Body>
     </Card>
   );

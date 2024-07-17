@@ -1,0 +1,19 @@
+.book img {
+  width: 35rem;
+  height: 50rem;
+}
+
+.book .card {
+  border: none;
+  text-align: center;
+}
+
+.book a {
+  display: none;
+}
+
+.commentArea {
+    margin: 0 auto;
+
+  }
+  

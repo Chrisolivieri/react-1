@@ -4,8 +4,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { CgDarkMode } from "react-icons/cg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContextProvider";
+import { Link } from "react-router-dom";
+import "./MyNav.css";
 
 function MyNav({ filter, input }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -17,7 +19,7 @@ function MyNav({ filter, input }) {
       >
         <Container fluid>
           <Navbar.Brand
-            href="#home"
+            as = {Link} to = "/"
             className={theme === "light" ? "text-dark" : "text-light"}
           >
             Visualizza libri

@@ -1,9 +1,9 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import SingleBook from "./SingleBook";
+import SingleBook from "../components/SingleBook";
 import { useState } from "react";
-import CommentArea from "./CommentArea";
+import CommentArea from "../components/CommentArea";
 
 function AllTheBooks({ libriFiltrati }) {
   const [border, setBorder] = useState(null);

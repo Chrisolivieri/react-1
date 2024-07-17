@@ -2,11 +2,13 @@ import "./App.css";
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
 import Welcome from "./components/Welcome";
-import AllTheBooks from "./components/AllTheBooks";
+import AllTheBooks from "./pages/AllTheBooks";
 import Horror from "./components/books/horror.json";
 import { useContext, useState } from "react";
-import  { ThemeContext } from "./context/ThemeContextProvider";
-
+import { ThemeContext } from "./context/ThemeContextProvider";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
   const [input, setInput] = useState("");
@@ -24,17 +26,18 @@ function App() {
     setLibriFiltrati(filtrati);
   };
   return (
-    
-   
+    <BrowserRouter>
       <div className={theme === "light" ? "App" : "bg-dark text-light App"}>
-         
-          <MyNav filter={filter} input={input}  /> 
-          <Welcome input={input} />
-          <AllTheBooks libriFiltrati={libriFiltrati} />
-          <MyFooter />
-        
+        <MyNav filter={filter} input={input} />
+        <Welcome input={input} />
+        <Routes>
+          <Route path="/" element= {<AllTheBooks libriFiltrati={libriFiltrati} />} />
+          <Route path="/*" element={<NotFound />} />
+          <Route path="/details/:asin" element={<BookDetails libriFiltrati={libriFiltrati}/>} />
+        </Routes>
+        <MyFooter />
       </div>
-   
+    </BrowserRouter>
   );
 }
 
