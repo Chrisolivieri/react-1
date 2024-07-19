@@ -21,7 +21,7 @@ function BookDetails({ libriFiltrati }) {
             <Col
               sm={12}
               md={12}
-              lg={12}
+              lg={6}
               className="d-flex justify-content-center"
             >
               <div className="book">

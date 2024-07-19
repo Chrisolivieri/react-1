@@ -22,7 +22,7 @@ function MyNav({ filter, input }) {
             as = {Link} to = "/"
             className={theme === "light" ? "text-dark" : "text-light"}
           >
-            Visualizza libri
+            Show book
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
@@ -30,7 +30,7 @@ function MyNav({ filter, input }) {
             <Form.Control
               onChange={filter}
               value={input}
-              placeholder="Cerca libro"
+              placeholder="Search book"
             />
           </InputGroup>
           <Navbar.Brand className="px-3">

@@ -6,7 +6,7 @@ import AllTheBooks from "./pages/AllTheBooks";
 import Horror from "./components/books/horror.json";
 import { useContext, useState } from "react";
 import { ThemeContext } from "./context/ThemeContextProvider";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import BookDetails from "./pages/BookDetails";
 
@@ -32,7 +32,8 @@ function App() {
         <Welcome input={input} />
         <Routes>
           <Route path="/" element= {<AllTheBooks libriFiltrati={libriFiltrati} />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="/*" element={<Navigate to ="/404" />} />
           <Route path="/details/:asin" element={<BookDetails libriFiltrati={libriFiltrati}/>} />
         </Routes>
         <MyFooter />

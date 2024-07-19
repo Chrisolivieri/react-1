@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, ListGroup, Form, Badge,  } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import "./SingleComment.css";
 
 function SingleComment({ comment, loadComments }) {
   
@@ -32,17 +33,19 @@ function SingleComment({ comment, loadComments }) {
   const [isEditing, setIsEditing] = useState(false);
   
   const [formValue, setformValue] = useState({});
-
+  
+// usiamo editForm per rendere visibile il form di modifica
   const editForm = () => {
     setIsEditing(!isEditing);
   };
-
+// usiamo useEffect per settare i valori iniziali
   useEffect (()=>{
     const initialFormEdit = {
       rate: comment.rate,
       comment: comment.comment,
       elementId: comment.elementId,
     }
+    // definiamo i valori iniziali
       setformValue(initialFormEdit)
   },[comment])
 
@@ -76,11 +79,13 @@ function SingleComment({ comment, loadComments }) {
       alert("Riprova più tardi.");
     }
   };
+
+  // usiamo handleChange per rendere visibile il form di modifica
   const handleChange = (ev) => {
     setformValue({ ...formValue, [ev.target.name]: ev.target.value });
   };
   return (
-    <>
+    <div className="singleComment">
     
       <ListGroup as="ol" className=" py-2">
         <ListGroup.Item
@@ -141,18 +146,20 @@ function SingleComment({ comment, loadComments }) {
 
         </ListGroup.Item>
       </ListGroup>
-      <Button variant="danger" onClick={handleDelete}>
-      <FaTrashAlt />
-      </Button>
-      <Button
-        variant="success"
-        onClick={() => {
-          isEditing ? handleEdit() : editForm();
-        }}
-      >
-        <FaEdit />
-      </Button>
-    </>
+      <div className="d-flex justify-content-center">
+        <Button variant="danger" onClick={handleDelete} className="mx-3 button1">
+        <FaTrashAlt />
+        </Button>
+        <Button className="button2"
+          variant="success"
+          onClick={() => {
+            isEditing ? handleEdit() : editForm();
+          }}
+        >
+          <FaEdit />
+        </Button>
+      </div>
+    </div>
   );
 }
 

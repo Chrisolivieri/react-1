@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { LiaSaveSolid } from "react-icons/lia";
+import "./AddComment.css";
 
 function AddComment({ asin, loadComments }) {
   const initialFormState = {
@@ -53,33 +54,37 @@ function AddComment({ asin, loadComments }) {
   };
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="rateInput">
-        <Form.Label>Rate from 1 to 5</Form.Label>
-        <Form.Control
-          type="number"
-          placeholder="Rate"
-          min="1"
-          max="5"
-          name="rate"
-          onChange={handleChange}
-          value={formValue.rate}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="commentTextarea">
-        <Form.Label>Your Comment</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          name="comment"
-          onChange={handleChange}
-          value={formValue.comment}
-        />
-      </Form.Group>
-      <Button variant="primary" onClick={handleSaveComment}>
-        <LiaSaveSolid size={25} />
-      </Button>
-    </Form>
+    <>
+      <Form>
+        <Form.Group className="mb-3" controlId="rateInput">
+          <Form.Label>Rate from 1 to 5</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Rate"
+            min="1"
+            max="5"
+            name="rate"
+            onChange={handleChange}
+            value={formValue.rate}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="commentTextarea">
+          <Form.Label>Your Comment</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="comment"
+            onChange={handleChange}
+            value={formValue.comment}
+          />
+        </Form.Group>
+      </Form>
+      <div className="d-flex justify-content-center">
+        <Button variant="primary" onClick={handleSaveComment}>
+          <LiaSaveSolid className="button3" size={25} />
+        </Button>
+      </div>
+    </>
   );
 }
 

@@ -9,21 +9,21 @@ function Welcome({ input }) {
   return (
     <>
       <Alert show={show} variant="success">
-        <Alert.Heading className="text-center">Libri Horror</Alert.Heading>
+        <Alert.Heading className="text-center"><h1>Horror Books</h1></Alert.Heading>
 
         <div className="d-flex justify-content-end">
           <Button onClick={() => setShow(false)} variant="outline-success">
-            Chiudimi
+            Close me
           </Button>
         </div>
       </Alert>
 
       {!show && (
         <Button variant="outline-success" onClick={() => setShow(true)}>
-          Mostra Alert
+          Show Title
         </Button>
       )}
-      <h1>Libri react</h1>
+      
       {input && <h6>Il valore ricercato è {input}</h6>}
     </>
   );

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import "./SingleBook.css";
 import { ThemeContext } from "../context/ThemeContextProvider";
@@ -6,11 +6,22 @@ import { Link, useNavigate } from "react-router-dom";
 
 function SingleBook({ book, border, handleCardClick }) {
   const { theme } = useContext(ThemeContext);
-  const navigate = useNavigate();
+
+  const navigate = useNavigate()
+   
+  //usiamo useEffect per gestire l'errore dell'asin inesistente
+  useEffect(() => {
+    if (!book || !book.asin) {
+      navigate('/404');
+    }
+  
+  }, [book, navigate]);
 
   if (!book || !book.asin) {
-    return <div>Errore: libro non disponibile</div>;
+    
+    return null; 
   }
+
 
   return (
     <Card
@@ -22,13 +33,14 @@ function SingleBook({ book, border, handleCardClick }) {
         className={border === book.asin ? "redBorder" : null}
         src={book.img}
         onClick={() => handleCardClick(book.asin)}
+        data-testid="bookCards"
       />
       <Card.Body>
         <Card.Title>
           <p>{book.title}</p>
         </Card.Title>
         <Card.Text>{book.price} €</Card.Text>
-        <Link to={`/details/${book.asin}`}>Dettagli</Link>
+        <Link to={`/details/${book.asin}`}>Details</Link>
       </Card.Body>
     </Card>
   );
