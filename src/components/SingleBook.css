@@ -10,3 +10,42 @@ img {
 .redBorder {
   border: solid red 2px !important;
 }
+
+.details {
+  height: 40px;
+  width: 120px;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: Helvetica,"sans-serif";
+  transition: all .2s;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: #d2d3ca;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+
+}
+
+.details:hover {
+  background: #c4e201;
+}
+
+.details > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform .3s ease-in-out;
+}
+
+.details:hover svg {
+  transform: translateX(5px);
+}
+
+.details:active {
+  transform: scale(0.95);
+}
+
+.link{
+  text-decoration: none;
+}

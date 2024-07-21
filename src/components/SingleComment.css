@@ -1,9 +1,35 @@
-.button1 {
+.deleteComment {
   width: 5rem;
+  background-color: #f3f7fe;
+  color: #f90c00;
+  border: solid #f90c00;
+  border-radius: 8px;
+  width: 100px;
+  height: 45px;
+  transition: 0.3s;
 }
 
-.button2 {
+.deleteComment:hover {
+  background-color: #f90c00;
+  box-shadow: 0 0 0 5px #f49d99;
+  color: #fff;
+}
+
+.editComment {
   width: 5rem;
+  background-color: #f3f7fe;
+  color: #025302;
+  border: solid #025302;
+  border-radius: 8px;
+  width: 100px;
+  height: 45px;
+  transition: 0.3s;
+}
+
+.editComment:hover {
+  background-color: #025302;
+  box-shadow: 0 0 0 5px #3b9a3b;
+  color: #fff;
 }
 
 .singleComment {

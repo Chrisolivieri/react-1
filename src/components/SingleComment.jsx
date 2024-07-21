@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
-import { Button, ListGroup, Form, Badge,  } from "react-bootstrap";
+import { ListGroup, Form, Badge,  } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import "./SingleComment.css";
 
 function SingleComment({ comment, loadComments }) {
+
   
   const handleDelete = async () => {
+ 
     try {
       const response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/${comment._id}`,
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg5MWMxNzJiNWMyMDAwMTUyNzFmYjQiLCJpYXQiOjE3MjAyNjE2NTUsImV4cCI6MTcyMTQ3MTI1NX0.g2rDStXE1X97fb20GU7x7rOAa56qGgiB-FjyUF50kdU",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjliZDhlMTMxZGI2MDAwMTUwYjljMTIiLCJpYXQiOjE3MjE0ODk2MzQsImV4cCI6MTcyMjY5OTIzNH0.HkhBDKJM1cXFvUIP6z1W3TIL_lQYy0EYtlJ2i-TGni0",
             "Content-Type": "application/json",
           },
           method: "DELETE",
         }
       );
+
       if (response.ok) {
         alert("Cancellato corrrettamente");
         loadComments();
@@ -60,7 +63,7 @@ function SingleComment({ comment, loadComments }) {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njg5MWMxNzJiNWMyMDAwMTUyNzFmYjQiLCJpYXQiOjE3MjAyNjE2NTUsImV4cCI6MTcyMTQ3MTI1NX0.g2rDStXE1X97fb20GU7x7rOAa56qGgiB-FjyUF50kdU",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjliZDhlMTMxZGI2MDAwMTUwYjljMTIiLCJpYXQiOjE3MjE0ODk2MzQsImV4cCI6MTcyMjY5OTIzNH0.HkhBDKJM1cXFvUIP6z1W3TIL_lQYy0EYtlJ2i-TGni0",
             "Content-Type": "application/json",
           },
           method: "PUT",
@@ -87,7 +90,7 @@ function SingleComment({ comment, loadComments }) {
   return (
     <div className="singleComment">
     
-      <ListGroup as="ol" className=" py-2">
+      <ListGroup data-testid="singleComment" as="ol" className=" py-2">
         <ListGroup.Item
           as="li"
           className="d-flex justify-content-between align-items-start"
@@ -147,17 +150,16 @@ function SingleComment({ comment, loadComments }) {
         </ListGroup.Item>
       </ListGroup>
       <div className="d-flex justify-content-center">
-        <Button variant="danger" onClick={handleDelete} className="mx-3 button1">
+        <button onClick={handleDelete} className="mx-3 deleteComment">
         <FaTrashAlt />
-        </Button>
-        <Button className="button2"
-          variant="success"
+        </button>
+        <button className="editComment"
           onClick={() => {
             isEditing ? handleEdit() : editForm();
           }}
         >
           <FaEdit />
-        </Button>
+        </button>
       </div>
     </div>
   );

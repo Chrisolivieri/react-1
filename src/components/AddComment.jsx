@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import { LiaSaveSolid } from "react-icons/lia";
 import "./AddComment.css";
 
@@ -34,7 +33,7 @@ function AddComment({ asin, loadComments }) {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjhjMDdiYjNiMDQ4YTAwMTU5MDE3MjkiLCJpYXQiOjE3MjA0NTMwNTEsImV4cCI6MTcyMTY2MjY1MX0.QKHvKhNRevprCC09YfHposyES6FxvVVOjrNcGlPUyUI",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjliZDhlMTMxZGI2MDAwMTUwYjljMTIiLCJpYXQiOjE3MjE0ODk2MzQsImV4cCI6MTcyMjY5OTIzNH0.HkhBDKJM1cXFvUIP6z1W3TIL_lQYy0EYtlJ2i-TGni0",
           },
           method: "POST",
           body: JSON.stringify(formValue),
@@ -80,9 +79,9 @@ function AddComment({ asin, loadComments }) {
         </Form.Group>
       </Form>
       <div className="d-flex justify-content-center">
-        <Button variant="primary" onClick={handleSaveComment}>
-          <LiaSaveSolid className="button3" size={25} />
-        </Button>
+        <button variant="primary" className="addComment" onClick={handleSaveComment}>
+          <LiaSaveSolid size={25} />
+        </button>
       </div>
     </>
   );

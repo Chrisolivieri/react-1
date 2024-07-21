@@ -13,12 +13,12 @@ function AllTheBooks({ libriFiltrati }) {
 
   return (
     <>
-      <Container>
+      <Container >
         <Row>
-          <Col md ={8}>
+          <Col sm={5} lg={7} md ={6} xl={8}>
           <Row>
           {libriFiltrati.map((item) => (
-            <Col sm={12} md={6} lg={4} key={item.asin}>
+            <Col sm={12} md={10} lg={6} xl={4} key={item.asin}>
               <SingleBook
                 book = {item}
                 border = {border}
@@ -28,7 +28,7 @@ function AllTheBooks({ libriFiltrati }) {
           ))}
         </Row>
           </Col>
-          <Col md={4}>
+          <Col sm={7} md={6} lg={5} xl={4}>
           {border && <CommentArea asin={border}   />}
             </Col>
         </Row>
